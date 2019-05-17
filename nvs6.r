@@ -6,7 +6,7 @@ library(stringr)
 
 # file from email, uploaded to server. How to make this available to other users?
 
-master1_raw <- read.csv("~/R/nvs6/data/Master1_Table.txt", header=FALSE)
+# master1_raw <- read.csv("~/R/nvs6/data/Master1_Table.txt", header=FALSE) # no headers
 master1headers_raw <- read.csv("~/R/nvs6/data/master1_withHeaders.txt")
 
 # variable names to lower case
