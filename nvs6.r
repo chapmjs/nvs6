@@ -9,6 +9,16 @@ library(stringr)
 # master1_raw <- read.csv("~/R/nvs6/data/Master1_Table.txt", header=FALSE) # no headers
 master1headers_raw <- read.csv("~/R/nvs6/data/master1_withHeaders.txt")
 
+# Need to add a url to the file source online - google drive link?
+# url - https://drive.google.com/open?id=1R1RZUBtxqE8msfT-kCutvHnBowkushIX
+
+# Example code from https://stackoverflow.com/questions/33135060/read-csv-file-hosted-on-google-drive
+# id <- "0B-wuZ2XMFIBUd09Ob0pKVkRzQTA" # google file ID
+# read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id))
+
+dloadid <- "1R1RZUBtxqE8msfT-kCutvHnBowkushIX"
+master1web <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", dloadid))
+
 # variable names to lower case
 names(master1headers_raw) <- tolower(names(master1headers_raw))
 names(master1headers_raw)
