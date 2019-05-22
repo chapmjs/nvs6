@@ -31,24 +31,30 @@ master1 <- master1 %>% select (-id)
 setequal(master1$soc2010ttl,master1$Occupation)  # = FALSE
 
 
-#### Additional data cleaning tasks:
-
 # convert medwage from factor to numeric data type
 # numeric fields = medwage
 # convert currency fields from string to numeric data type
 
 
-#### Exercises below to practice filtering and sorting in R
+# Exercises below to practice filtering and sorting in R
 
 # 1 Number of Bachelor's degrees awards offered by state
+master1 %>% 
+  filter(str_detect(level_name, "Bachelor's")) %>%
+  group_by (stabbr) %>%
+  summarize(n = n()) %>%
+  arrange (desc(n))
   
 
 # 2 List of institutions offering highest number of bachelor's degrees in VA
-
+master1 %>%
+  filter(stabbr == "VA",str_detect(level_name, "Bachelor's")) %>%
+  select(instnm,cip2010ttl,level_name) %>%
+  group_by(instnm) %>%
+  summarize(n = n()) %>%
+  arrange(desc(n))
 
 # 3 Which occupation is the highest medium wage
 
-
 # 4 Which institutions offer the highest sum of median-wage occupations by degree in VA?
-
 
